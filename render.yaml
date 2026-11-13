@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: signalforge-api
+    runtime: docker
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: DATA_PATH
+        value: /app/seed/demo_ohlcv.csv
+      - key: DATABASE_PATH
+        value: /app/data/signalforge.db
+      - key: CORS_ORIGINS
+        sync: false
